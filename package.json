@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-chatwork",
+  "version": "0.0.1",
+  "description": "node-red node chatwork post message",
+  "main": "cwpost.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youske/node-red-contrib-chatwork.git"
+  },
+  "keywords": [
+    "node-red",
+    "chatwork",
+    "message"
+  ],
+  "node-red": {
+    "nodes": {
+      "Chatwork": "cwpost.js"
+    }
+  },
+  "author": "youske miyakoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/youske/node-red-contrib-chatwork/issues"
+  },
+  "homepage": "https://github.com/youske/node-red-contrib-chatwork#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
