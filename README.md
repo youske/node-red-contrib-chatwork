@@ -13,10 +13,14 @@ npm install node-red-contrib-chatwork
 git clone <github node-red-contrib-chatwork>
 cd node-red-contrib-chatwork
 npm install
+```
 
+### node-red install development directory 
+```
 cd <node-red root>
 npm install <git clone node-red-contrib-chatwork>
-node-red 
+
+< restart node-red > 
 ```
 
 ### sample node

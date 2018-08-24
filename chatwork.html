@@ -1,0 +1,72 @@
+<script type="text/x-red" data-template-name="chatwork">
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-config-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row input-apitoken-row">
+    <label for="node-config-input-apitoken"><i class="fa fa-lock"></i> APIToken</label>
+    <input type="password" id="node-config-input-apitoken">
+  </div>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('chatwork', {
+    category: 'config',
+    color: "#48ace4",
+    defaults: {
+      name: { value: '', required: true }
+    },
+    credentials: {
+      apitoken: { type: 'password', required: true }
+    },
+    label: function() {
+      return this.name
+    }
+  });
+</script>
+
+<script type="text/x-red" data-help-name="chatwork out">
+  <p>Chatwork にて指定チャンネルにメッセージを投稿する</p>
+　  <p>
+    Chatworkはチャットメッセージサービス
+    Chatworkについて、使い方は<a href="https://chatwork.com">こちら</a>を参照
+    <p>
+　<p>
+   ChatworkAPI Token, 投稿先チャンネルIDを設定し
+   msg.payloadの内容を本文として投稿する
+</script>
+
+<script type="text/x-red" data-template-name="chatwork out">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-chatwork"><i class="fa fa-user"></i> Set APIToken</label>
+    <input type="text" id="node-input-chatwork">
+  </div>
+  <div class="form-row">
+    <label for="node-input-channelId"><i class="icon-tag"></i> ChannelId</label>
+    <input type="text" id="node-input-channelId" placeholder="ChannelId">
+  </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('chatwork out', {
+        category: 'storage-output',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: '' },
+            chatwork: { type: 'chatwork', required: true },
+            channelId: { value: '', required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "chatwork.png",
+        align: "right",
+        label: function() {
+            var chatworkNode = RED.nodes.node(this.chatwork);
+            return this.name || 'chatwork';
+        }
+    });
+</script>
