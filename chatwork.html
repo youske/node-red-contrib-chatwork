@@ -25,6 +25,21 @@
   });
 </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/x-red" data-help-name="chatwork out">
   <p>Chatwork にて指定チャンネルにメッセージを投稿する</p>
 　  <p>
@@ -70,3 +85,189 @@
         }
     });
 </script>
+
+
+
+
+
+
+
+
+
+<script type="text/x-red" data-help-name="chatwork contacts">
+  <p>Chatworkコンタクトリスト取得する</p>
+　  <p>
+    Chatworkはチャットメッセージサービス
+    Chatworkについて、使い方は<a href="https://chatwork.com">こちら</a>を参照
+    <p>
+　<p>
+   ChatworkAPI Token, 投稿先チャンネルIDを設定し
+   msg.payloadの内容を本文として投稿する
+</script>
+
+<script type="text/x-red" data-template-name="chatwork contacts">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-chatwork"><i class="fa fa-user"></i> Set APIToken</label>
+    <input type="text" id="node-input-chatwork">
+  </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('chatwork contacts', {
+        category: 'input',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: '' },
+            chatwork: { type: 'chatwork', required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "chatwork.png",
+        align: "right",
+        label: function() {
+            var chatworkNode = RED.nodes.node(this.chatwork);
+            return this.name || 'chatwork contacts';
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/x-red" data-help-name="chatwork tasks">
+  <p>Chatwork にて指定チャンネルにタスクを投稿する</p>
+　  <p>
+    Chatworkはチャットメッセージサービス
+    Chatworkについて、使い方は<a href="https://chatwork.com">こちら</a>を参照
+    <p>
+　<p>
+   ChatworkAPI Token, 投稿先チャンネルIDを設定し
+   msg.payloadの内容を本文として投稿する
+</script>
+
+<script type="text/x-red" data-template-name="chatwork tasks">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-chatwork"><i class="fa fa-user"></i> Set APIToken</label>
+    <input type="text" id="node-input-chatwork">
+  </div>
+  <div class="form-row">
+    <label for="node-input-channelId"><i class="icon-tag"></i> ChannelId</label>
+    <input type="text" id="node-input-channelId" placeholder="ChannelId">
+  </div>
+  <div class="form-row">
+    <label for="node-input-limit"><i class="icon-tag"></i> Limit</label>
+    <input type="text" id="node-input-limit" placeholder="Limit">
+  </div>
+  <div class="form-row">
+    <label for="node-input-to"><i class="icon-tag"></i> To</label>
+    <input type="text" id="node-input-to" placeholder="To">
+  </div>
+
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('chatwork tasks', {
+        category: 'storage-output',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: '' },
+            chatwork: { type: 'chatwork', required: true },
+            channelId: { value: '', required: true },
+            limit: { value: '' },
+            to: { value: '' }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "chatwork.png",
+        align: "right",
+        label: function() {
+            var chatworkNode = RED.nodes.node(this.chatwork);
+            return this.name || 'chatwork tasks';
+        }
+    });
+</script>
+
+
+
+
+
+
+
+<script type="text/x-red" data-help-name="chatwork files">
+  <p>Chatwork ファイルを投稿する</p>
+　  <p>
+    Chatworkはチャットメッセージサービス
+    Chatworkについて、使い方は<a href="https://chatwork.com">こちら</a>を参照
+    <p>
+　<p>
+   ChatworkAPI Token, 投稿先チャンネルIDを設定し
+   msg.payloadの内容を本文として投稿する
+</script>
+
+<script type="text/x-red" data-template-name="chatwork files">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-chatwork"><i class="fa fa-user"></i> Set APIToken</label>
+    <input type="text" id="node-input-chatwork">
+  </div>
+  <div class="form-row">
+    <label for="node-input-channelId"><i class="icon-tag"></i> ChannelId</label>
+    <input type="text" id="node-input-channelId" placeholder="ChannelId">
+  </div>
+  <div class="form-row">
+    <label for="node-input-url"><i class="icon-tag"></i> url</label>
+    <input type="text" id="node-input-url" placeholder="url">
+  </div>
+  
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('chatwork files', {
+        category: 'storage-output',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: '' },
+            chatwork: { type: 'chatwork', required: true },
+            url: { value: '', required: true },
+            channelId: { value: '', required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "chatwork.png",
+        align: "right",
+        label: function() {
+            var chatworkNode = RED.nodes.node(this.chatwork);
+            return this.name || 'chatwork files';
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
